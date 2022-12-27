@@ -1,0 +1,66 @@
+<h5>Sample Angular Material Form</h5>
+<form [formGroup]="myForm" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+<mat-form-field>
+    <mat-label>Full Name</mat-label>
+    <mat-icon matSuffix>face</mat-icon>
+   <input matInput type="text" placeholder="Full Name" formControlName="name" id="name">
+<mat-hint align="end">Not more then 32 characters long.</mat-hint>
+<mat-error *ngIf="myError('name', 'required')">Name is required</mat-error>
+<mat-error *ngIf="myError('name', 'minLength')">Limit exceed</mat-error>
+<mat-error *ngIf="myError('name', 'maxlength')">Limit exceed</mat-error>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Email Address</mat-label>
+    <mat-icon matSuffix>email</mat-icon>
+    <input matInput type="text" placeholder="Enter Email" formControlName="email" id="email">
+  <mat-error  *ngIf="myError('email', 'required')">email is required</mat-error>
+ </mat-form-field>
+ 
+ <mat-form-field>
+    <mat-label>Pass word</mat-label>
+    <mat-icon matSuffix>visibility_off</mat-icon>
+    <input matInput type="text" placeholder="Enter Passowrd" formControlName="password" id="password">
+ <mat-hint align="end">Not more then 8 characters long.</mat-hint>
+ <mat-error *ngIf="myError('password', 'required')">password is required</mat-error>
+ <mat-error *ngIf="myError('password', 'maxlength')">Limit exceed</mat-error>
+ </mat-form-field>
+ <br>
+ <br>
+ <div>
+    <label>Gender: </label>
+    <mat-radio-group >
+      <mat-radio-button value="1">Male</mat-radio-button>
+      <mat-radio-button value="2">Femal</mat-radio-button>
+    </mat-radio-group>
+</div>
+<br>
+
+<mat-form-field appearance="fill">
+    <mat-label>Date Of Birth</mat-label>
+    <input matInput [matDatepicker]="dp" >
+  <mat-hint>MMMM DD, YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+    <mat-label>Phone number</mat-label>
+    <mat-icon matSuffix>phone</mat-icon>
+    <input matInput type="text" placeholder="Enter Mobile No" formControlName="mobileno" id="mobileno">
+     <mat-hint align="end">Not more then 10 characters long.</mat-hint>
+     <mat-error *ngIf="myError('mobileno', 'required')">phone number is required</mat-error>
+     <mat-error *ngIf="myError('mobileno', 'maxlength')">Limit exceed</mat-error>
+   </mat-form-field>
+ <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="Basic">Angular Basic</mat-option>
+      <mat-option value="AngularIntermediate">Angular Intermediate/Angular Advanced</mat-option>
+    </mat-select>
+  </mat-form-field><br>
+<div>
+    <button mat-raised-button color="primary">Submit</button>
+</div>
+  </form>
